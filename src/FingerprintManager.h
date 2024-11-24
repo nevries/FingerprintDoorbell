@@ -15,7 +15,7 @@
   By using the touch ring as an additional input to the image sensor the sensitivity is much higher for door bell ring events. Unfortunately
   we cannot differ between touches on the ring by fingers or rain drops, so rain on the ring will cause false alarms.
 */
-const int touchRingPin = 5;     // touch/wakeup pin connected to fingerprint sensor
+const int touchRingPin = PIN_WAKE;     // touch/wakeup pin connected to fingerprint sensor
 
 enum class ScanResult { noFinger, matchFound, noMatchFound, error };
 enum class EnrollResult { ok, error };
@@ -23,7 +23,7 @@ enum class EnrollResult { ok, error };
 struct Match {
   ScanResult scanResult = ScanResult::noFinger;
   uint16_t matchId = 0;
-  String matchName = "unknown";
+  String matchName = "Nobody";
   uint16_t matchConfidence = 0;
   uint8_t returnCode = 0;
 };
